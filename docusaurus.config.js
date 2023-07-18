@@ -1,5 +1,5 @@
 const path = require('path')
-const beian = '闽ICP备2020017848号-2'
+const beian = ''
 
 const announcementBarContent = ''
 
@@ -7,7 +7,7 @@ const announcementBarContent = ''
 const config = {
   title: '西蒙的博客',
   titleDelimiter: '-',
-  url: 'https://kuizuo.cn',
+  url: 'http://simonfw.surge.sh/',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
   organizationName: 'kuizuo',
