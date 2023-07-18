@@ -8,11 +8,11 @@
 
 <p align="center">
 <br>
-<a href="https://kuizuo.cn">🖥 Online Preview</a>
+<a href="http://simonfw.surge.sh/">🖥 Online Preview</a>
 <br><br> 
-<a href="https://vercel.com/new/clone?repository-url=https://github.com/kuizuo/blog/tree/main&project-name=blog&repo-name=blog" rel="nofollow"><img src="https://vercel.com/button"></a>
-<a href="https://app.netlify.com/start/deploy?repository=https://github.com/kuizuo/blog" rel="nofollow"><img src="https://www.netlify.com/img/deploy/button.svg"></a>
-<a href="https://stackblitz.com/github/kuizuo/blog" rel="nofollow"><img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg"></a>
+<a href="https://vercel.com/new/clone" rel="nofollow"><img src="https://vercel.com/button"></a>
+<a href="https://app.netlify.com/start/" rel="nofollow"><img src="https://www.netlify.com/img/deploy/button.svg"></a>
+<a href="https://stackblitz.com/" rel="nofollow"><img src="https://developer.stackblitz.com/img/open_in_stackblitz.svg"></a>
 </p>
 
 ## 👋 Introduction
@@ -31,7 +31,6 @@
 - 📊 **谷歌分析** - 支持 Google Analytics
 - 🔎 **全文搜索** - 支持 [Algolia DocSearch](https://github.com/algolia/docsearch)
 - 🗃️ **博文视图** - 不同的博文视图，列表、宫格、卡片
-- 🌈 **资源导航** - 收集并分享有用、有意思的资源
 - 📦 **项目展示** - 展示你的项目，可用作于作品集
 
 我的修改：[Docusaurus 主题魔改](https://kuizuo.cn/docs/docusaurus-guides)
