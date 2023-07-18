@@ -48,10 +48,10 @@ const config = {
           label: '学习',
           position: 'right',
           items: [
-            {
-              label: '标签',
-              to: 'tags',
-            },
+            // {
+            //   label: '标签',
+            //   to: 'tags',
+            // },
             {
               label: '归档',
               to: 'archive',
