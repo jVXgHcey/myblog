@@ -2,15 +2,15 @@
   "name": "blog",
   "version": "2.3.1",
   "author": {
-    "url": "https://github.com/kuizuo",
+    "url": "https://github.com/jVXgHcey",
     "email": "hi@kuizuo.cn",
     "name": "Kuizuo"
   },
   "repository": {
-    "url": "https://github.com/kuizuo/blog",
+    "url": "https://github.com/jVXgHcey/myblog",
     "type": "git"
   },
-  "homepage": "https://kuizuo.cn",
+  "homepage": "https://simonfw.surge.sh",
   "license": "MIT",
   "scripts": {
     "docusaurus": "docusaurus",
