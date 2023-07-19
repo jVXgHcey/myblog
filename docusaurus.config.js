@@ -7,10 +7,10 @@ const announcementBarContent = ''
 const config = {
   title: '西蒙的博客',
   titleDelimiter: '-',
-  url: 'http://simonfw.surge.sh/',
+  url: 'http://www.futureworker.cc/',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
-  organizationName: 'kuizuo',
+  organizationName: 'simon',
   projectName: 'blog',
   tagline: '道阻且长，行则将至',
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */

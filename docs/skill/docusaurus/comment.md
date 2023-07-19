@@ -7,7 +7,7 @@ authors: kuizuo
 
 这里推荐两种评论服务
 
-Giscus：基于GitHub Discussions，对程序员相对友好，评论信息提示通过github邮箱发送。
+Giscus：基于 GitHub Discussions，对程序员相对友好，评论信息提示通过 github 邮箱发送。
 
 Waline：需要搭建后端服务与数据库服务，提供评论与浏览量服务，可拓展性强。
 
@@ -28,24 +28,25 @@ Waline：需要搭建后端服务与数据库服务，提供评论与浏览量�
 打开 [giscus](https://giscus.app/) 官网，填写完对应的信息后，可以得到一个已经配置好的`<script>`标签
 
 ```html
-<script src="https://giscus.app/client.js"
-        data-repo="kuizuo/blog"
-        data-repo-id="MDEwOlJlcG9zaXRvcnkzOTc2MjU2MTI="
-        data-category="General"
-        data-category-id="DIC_kwDOF7NJDM4CPK95"
-        data-mapping="title"
-        data-strict="0"
-        data-reactions-enabled="1"
-        data-emit-metadata="0"
-        data-input-position="top"
-        data-theme="light"
-        data-lang="zh-CN"
-        crossorigin="anonymous"
-        async>
-</script>
+<script
+  src="https://giscus.app/client.js"
+  data-repo="jVXgHcey/myblog"
+  data-repo-id="R_kgDOJ88KMw"
+  data-category="General"
+  data-category-id="DIC_kwDOJ88KM84CX-x_"
+  data-mapping="title"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="zh-CN"
+  crossorigin="anonymous"
+  async
+></script>
 ```
 
-由于我在 `src/component/Comment` 组件中做了配置合并，并且支持主题变化、国际化。因此，你只需要复制 `data-repo`, `data-repo-id`, `data-category` 和  `data-category-id` 填写到 `docusaurus.config.js` 中即可，以下是我的配置文件。
+由于我在 `src/component/Comment` 组件中做了配置合并，并且支持主题变化、国际化。因此，你只需要复制 `data-repo`, `data-repo-id`, `data-category` 和 `data-category-id` 填写到 `docusaurus.config.js` 中即可，以下是我的配置文件。
 
 ```javascript title='docusaurus.config.js'
 giscus: {
@@ -60,7 +61,7 @@ giscus: {
 
 :::info
 
-如果不替换的话，评论的信息都将会在我的 Discussions 下😂
+如果不替换的话，评论的信息都将会在我的 Discussions 下 😂
 
 :::
 
