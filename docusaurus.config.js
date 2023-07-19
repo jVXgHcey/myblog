@@ -208,10 +208,10 @@ const config = {
       jsLoader: 'matomo.js',
     },
     giscus: {
-      repo: 'kuizuo/blog',
-      repoId: 'MDEwOlJlcG9zaXRvcnkzOTc2MjU2MTI=',
+      repo: 'jVXgHcey/myblog',
+      repoId: 'R_kgDOJ88KMw',
       category: 'General',
-      categoryId: 'DIC_kwDOF7NJDM4CPK95',
+      categoryId: 'DIC_kwDOJ88KM84CX-x_',
       theme: 'light',
       darkTheme: 'dark',
     },

@@ -19,8 +19,6 @@
 
 在这里我会分享各类技术栈所遇到问题与解决方案，带你了解最新的技术栈以及实际开发中如何应用，并希望我的开发经历对你有所启发。
 
-如果你想要搭建一个类似的站点，可直接 [Fork](https://github.com/kuizuo/blog/fork) 本仓库使用，或者通过 [StackBlitz](https://stackblitz.com/github/kuizuo/blog) 在线运行本项目，或通过 [Vercel](https://vercel.com/new/clone?repository-url=https://github.com/kuizuo/blog/tree/main&project-name=blog&repo-name=blog) 一键部署。
-
 ## ✨ Features
 
 - ✍️ **Markdown** - 写作方便
@@ -32,8 +30,6 @@
 - 🔎 **全文搜索** - 支持 [Algolia DocSearch](https://github.com/algolia/docsearch)
 - 🗃️ **博文视图** - 不同的博文视图，列表、宫格、卡片
 - 📦 **项目展示** - 展示你的项目，可用作于作品集
-
-我的修改：[Docusaurus 主题魔改](https://kuizuo.cn/docs/docusaurus-guides)
 
 ## 📊 Catalogue
 
@@ -65,8 +61,8 @@
 ## 📥 Start
 
 ```sh
-git clone https://github.com/kuizuo/blog.git
-cd blog
+git clone https://github.com/jVXgHcey/myblog.git
+cd myblog
 yarn
 yarn start
 ```
