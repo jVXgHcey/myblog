@@ -1,12 +1,40 @@
+
 language: node_js
 node_js:
   - "17"
-script: "true"
+
+# Only trigger builds on the master branch
+branches:
+  only:
+    - master
+
+# Environment variables needed for Surge deployment
+env:
+  global:
+    # Your Surge subdomain (e.g., your-project.surge.sh)
+    - SURGE_SUBDOMAIN=futureworker.cc
+    # Your Surge token (generate one using "surge token" command)
+    - SURGE_TOKEN=ba177a227e2612b95a1621c430d2ea5e
+
+# Cache node_modules to speed up builds
+cache:
+  yarn: true
+  directories:
+    - "node_modules"
+
+# Install dependencies
+install:
+  - yarn install
+
+# Build your project (adjust this based on your build setup)
+script:
+  - yarn run build
+
+# Deployment script to Surge
 deploy:
   provider: surge
+  project: ./build # Set this to the directory where your build artifacts are stored
+  domain: $SURGE_SUBDOMAIN
+  skip_cleanup: true
   on:
-    branches: master
-  project: ./home/travis/build/jVXgHcey/myblog
-  login: jVXgHcey@gmail.com
-  token: ba177a227e2612b95a1621c430d2ea5e
-  domain: futureworker.cc
+    branch: master
