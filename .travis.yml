@@ -1,9 +1,13 @@
 language: node_js
 node_js:
   - "17"
+before-script:
+  - yarn install
+  - yarn build
 script: 'true'
 deploy:
   provider: surge
   on:
     branches: master
+  project: ./build/
   domain: futureworker.cc
