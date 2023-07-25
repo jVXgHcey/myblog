@@ -14,10 +14,6 @@ keywords: [javascript, ast, reverse, project]
 > js 在线混淆工具 [JavaScript Obfuscator Tool](https://www.obfuscator.io/)
 >
 > 书籍 《反爬虫 AST 原理与还原混淆实战》
->
-> 相关混淆代码 [kuizuo/js-de-obfuscator](https://github.com/kuizuo/js-de-obfuscator)
->
-> 自写在线混淆与还原网站 [JS 代码混淆与还原 (kuizuo.cn)](http://deobfuscator.kuizuo.cn/)
 
 ## 什么是 AST
 
@@ -72,7 +68,9 @@ const OOOOOO = [
   OOOOOo(++OOOOO0)
 })(OOOOOO, 115918 ^ 115930)
 
-window[atob(OOOOOO[694578 ^ 694578])][atob(OOOOOO[873625 ^ 873624])][atob(OOOOOO[219685 ^ 219687])] = function (OOOOO0) {
+window[atob(OOOOOO[694578 ^ 694578])][atob(OOOOOO[873625 ^ 873624])][
+  atob(OOOOOO[219685 ^ 219687])
+] = function (OOOOO0) {
   function OOOO00(OOOOOO, OOOOO0) {
     return OOOOOO + OOOOO0
   }
@@ -87,23 +85,36 @@ window[atob(OOOOOO[694578 ^ 694578])][atob(OOOOOO[873625 ^ 873624])][atob(OOOOOO
     atob(OOOOOO[428905 ^ 428897]),
     atob(OOOOOO[629582 ^ 629575]),
   ]
-  OOOOOo = OOOOOo[atob(OOOOOO[607437 ^ 607431])](/yyyy|YYYY/, this[atob(OOOOOO[799010 ^ 799017])]())
+  OOOOOo = OOOOOo[atob(OOOOOO[607437 ^ 607431])](
+    /yyyy|YYYY/,
+    this[atob(OOOOOO[799010 ^ 799017])](),
+  )
   OOOOOo = OOOOOo[atob(OOOOOO[518363 ^ 518353])](
     /MM/,
     OOOO00(this[atob(OOOOOO[862531 ^ 862543])](), 671347 ^ 671346)
       [atob(OOOOOO[822457 ^ 822452])]()
-      [atob(OOOOOO[974597 ^ 974603])](741860 ^ 741862, atob(OOOOOO[544174 ^ 544161])),
+      [atob(OOOOOO[974597 ^ 974603])](
+        741860 ^ 741862,
+        atob(OOOOOO[544174 ^ 544161]),
+      ),
   )
   OOOOOo = OOOOOo[atob(OOOOOO[406915 ^ 406921])](
     /dd|DD/,
     this[atob(OOOOOO[596004 ^ 596020])]()
       [atob(OOOOOO[705321 ^ 705316])]()
-      [atob(OOOOOO[419232 ^ 419246])](318456 ^ 318458, atob(OOOOOO[662337 ^ 662350])),
+      [atob(OOOOOO[419232 ^ 419246])](
+        318456 ^ 318458,
+        atob(OOOOOO[662337 ^ 662350]),
+      ),
   )
   return OOOOOo
 }
 
-console[atob(OOOOOO[490983 ^ 490998])](new window[atob(OOOOOO[116866 ^ 116866])]()[atob(OOOOOO[386287 ^ 386285])](atob(OOOOOO[530189 ^ 530207])))
+console[atob(OOOOOO[490983 ^ 490998])](
+  new window[atob(OOOOOO[116866 ^ 116866])]()[atob(OOOOOO[386287 ^ 386285])](
+    atob(OOOOOO[530189 ^ 530207]),
+  ),
+)
 ```
 
 将上述代码复制到浏览器控制台内执行，将会输出当天的年月日。
@@ -311,8 +322,7 @@ tip
 
 traverse 一共有两个参数，第一个就是 ast，第二个是 visitor，而 visitor 本质是一个对象如下(分别有 JavaScript 和 TypeScript 版本，区别就是在于这样定义的 visitor 是否有代码提示)
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 <Tabs>
   <TabItem value="js" label="JS" default>
@@ -389,10 +399,10 @@ traverse(ast, {
 traverse(ast, {
   FunctionDeclaration: {
     enter: [
-      (path) => {
+      path => {
         console.log('1')
       },
-      (path) => {
+      path => {
         console.log('2')
       },
     ],
@@ -477,7 +487,10 @@ types 的主要用途还是构造节点，或者说写一个 Builders（构建�
 body 内的第一个节点便是我们整条的代码，输入`t.variableDeclaration()`，鼠标悬停在 variableDeclaration 上，或者按 Ctrl 跳转只.d.ts 类型声明文件 查看该方法所需几个参数
 
 ```ts
-declare function variableDeclaration(kind: 'var' | 'let' | 'const', declarations: Array<VariableDeclarator>): VariableDeclaration
+declare function variableDeclaration(
+  kind: 'var' | 'let' | 'const',
+  declarations: Array<VariableDeclarator>,
+): VariableDeclaration
 ```
 
 可以看到第一个参数就是关键字，而第二个则一个数组，其中节点为`VariableDeclarator`，关于`variableDeclaration`与 `VariableDeclarator` 在前面已经提及过一次了，就不在赘述了。由于我们这里只是声明一个变量 a，所有数组成员只给一个便可，如果要生成 b，c 这些变量，就传入对应的`VariableDeclarator`即可
@@ -485,7 +498,10 @@ declare function variableDeclaration(kind: 'var' | 'let' | 'const', declarations
 这时候在查看下 VariableDeclarator 方法参数
 
 ```ts
-declare function variableDeclarator(id: LVal, init?: Expression | null): VariableDeclarator
+declare function variableDeclarator(
+  id: LVal,
+  init?: Expression | null,
+): VariableDeclarator
 ```
 
 第一个参数 id 很显然就是标识符了，不过这里的 id 不能简简单单传入一个字符串 a，而需要通过`t.identifier('a')`生成该节点，在上图中 id 就是对应`Identifier`节点。然后就是第二个参数了，一个表达式，其中这个`Expression`是 ts 中的联合类型（Union Types），可以看到有很多表达式
@@ -552,7 +568,9 @@ declare function numericLiteral(value: number): NumericLiteral;
 最后整个代码如下，将 t.variableDeclaration 结果赋值为一个变量`var_a`，这里的 var_a 便是一个 ast 对象，通过 generator(var_a).code 就可以获取到该 ast 的代码，也就是 `let a = 100;`，默认还会帮你添加分号
 
 ```javascript
-let var_a = t.variableDeclaration('let', [t.variableDeclarator(t.identifier('a'), t.numericLiteral(100))])
+let var_a = t.variableDeclaration('let', [
+  t.variableDeclarator(t.identifier('a'), t.numericLiteral(100)),
+])
 
 let code = generator(var_a).code
 // let a = 100;
@@ -571,7 +589,13 @@ types 操作
 ```javascript
 let param_x = t.identifier('x')
 let param_y = t.identifier('y')
-let func_b = t.functionDeclaration(t.identifier('b'), [param_x, param_y], t.blockStatement([t.returnStatement(t.binaryExpression('+', param_x, param_y))]))
+let func_b = t.functionDeclaration(
+  t.identifier('b'),
+  [param_x, param_y],
+  t.blockStatement([
+    t.returnStatement(t.binaryExpression('+', param_x, param_y)),
+  ]),
+)
 
 let code = generator(func_b).code
 ```
@@ -605,7 +629,13 @@ console.log(arr_c)
 如果使用`numericLiteral`来生成这些字面量的话那要写的话代码可能就要像下面这样
 
 ```javascript
-let arr_c = t.arrayExpression([t.numericLiteral(1), t.numericLiteral(2), t.numericLiteral(3), t.numericLiteral(4), t.numericLiteral(5)])
+let arr_c = t.arrayExpression([
+  t.numericLiteral(1),
+  t.numericLiteral(2),
+  t.numericLiteral(3),
+  t.numericLiteral(4),
+  t.numericLiteral(5),
+])
 ```
 
 而`valueToNode`能很方便地生成各种基本类型，甚至是一些对象类型（RegExp，Object 等）。不过像函数这种就不行。
@@ -691,7 +721,15 @@ path.replaceWith(t.valueToNode('kuizuo'))
 ```javascript
 traverse(ast, {
   ReturnStatement(path) {
-    path.replaceWithMultiple([t.expressionStatement(t.callExpression(t.memberExpression(t.identifier('console'), t.identifier('log')), [t.stringLiteral('kuizuo')])), t.returnStatement()])
+    path.replaceWithMultiple([
+      t.expressionStatement(
+        t.callExpression(
+          t.memberExpression(t.identifier('console'), t.identifier('log')),
+          [t.stringLiteral('kuizuo')],
+        ),
+      ),
+      t.returnStatement(),
+    ])
     path.stop()
   },
 })
@@ -766,7 +804,7 @@ traverse(ast, {
 ```javascript
 traverse(ast, {
   BinaryExpression(path) {
-    let parent = path.findParent((p) => p.isFunctionDeclaration())
+    let parent = path.findParent(p => p.isFunctionDeclaration())
     console.log(parent.toString())
   },
 })
@@ -1024,7 +1062,10 @@ referencePaths: [
 ```javascript
 traverse(ast, {
   Identifier(path) {
-    path.scope.rename(path.node.name, path.scope.generateUidIdentifier('_0xabcdef').name)
+    path.scope.rename(
+      path.node.name,
+      path.scope.generateUidIdentifier('_0xabcdef').name,
+    )
   },
 })
 ```
@@ -1055,8 +1096,6 @@ function _0xabcdef2() {
 当然大部分的 api 还需要自行翻阅文档，或通过代码提示与动态调试查看方法，举一反三，来达到所想要的目的。
 
 ## 混淆实战
-
-关于混淆实战的代码都已贴到 Github[kuizuo/AST-obfuscator](https://github.com/kuizuo/AST-obfuscator)，在`src/obfuscated`中便可看到完整的混淆程序。其中也包括一些实战还原的例子，大部分的写法都采用了 ES6 的类来写，方便编写理解。
 
 大部分混淆的例子在这本书《反爬虫 AST 原理与还原混淆实战》中都有，例如常量混淆，数组混淆与乱序，标识符混淆等等就不细说了，上传的代码中有，不过书中有一些 es6 的代码是没提及到的。
 
@@ -1138,7 +1177,9 @@ console.log(test.run())
 
 ```javascript
 traverse(ast, {
-  'Program|FunctionExpression|FunctionDeclaration|ClassDeclaration|ClassProperty|ClassMethod'(path) {
+  'Program|FunctionExpression|FunctionDeclaration|ClassDeclaration|ClassProperty|ClassMethod'(
+    path,
+  ) {
     renameOwnBinding(path)
   },
 })
@@ -1155,7 +1196,9 @@ class OOOOO0 {
   }
 
   run() {
-    return this[atob(OOOOOO[255772 ^ 255772])] + this[atob(OOOOOO[982314 ^ 982315])]
+    return (
+      this[atob(OOOOOO[255772 ^ 255772])] + this[atob(OOOOOO[982314 ^ 982315])]
+    )
   }
 }
 ```

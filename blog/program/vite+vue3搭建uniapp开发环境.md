@@ -130,8 +130,7 @@ uniapp 官方中提供了一个 uni-ui 的组件库，但有一个 uniapp 相对
 
 但很遗憾，这里的支持也只是局限于 h5 开发。官方也有声明只能开发 h5
 
-> @nutui/nutui@next 基于 Vue3 视觉风格 JD APP 10.0 规范 ，只能开发 h5
-> @nutui/nutui-taro 基于 Vue3 视觉风格 JD APP 10.0 规范 ，必须基于 taro + vue3 框架 进行开发多端（多端指一套代码 部署多端环境 微信小程序 h5、等第三方小程序）
+> @nutui/nutui@next 基于 Vue3 视觉风格 JD APP 10.0 规范 ，只能开发 h5 @nutui/nutui-taro 基于 Vue3 视觉风格 JD APP 10.0 规范 ，必须基于 taro + vue3 框架 进行开发多端（多端指一套代码 部署多端环境 微信小程序 h5、等第三方小程序）
 
 而且想要多端开发，也必须基于 taro + vue3 框架，所以在 uniapp 上的 app 与小程序上自然无法运行（已测试）
 
@@ -184,9 +183,7 @@ declare module '*.vue' {
 }
 ```
 
-然后就是把一些`#ifndef VUE3`不是 vue3 的代码块，以及部分 js 文件改写成 ts 文件即可。这里把我修改后的模板上传到 github 上，有需要的可自行下载：[kuizuo/vite-vue3-uniapp (github.com)](https://github.com/kuizuo/vite-vue3-uniapp)
-
-如果不想使用官方的 vue3 模板，这里也有篇文章介绍如何迁移
+然后就是把一些`#ifndef VUE3`不是 vue3 的代码块，以及部分 js 文件改写成 ts 文件即可。这里把我修改后的模板上传到 github 上如果不想使用官方的 vue3 模板，这里也有篇文章介绍如何迁移
 
 [迁移 HbuilderX 的 uniapp 项目到主流的前端 IDE 开发（支持 VS Code 等编辑器/IDE）](https://zhuanlan.zhihu.com/p/268206071)
 
