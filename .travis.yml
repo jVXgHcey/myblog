@@ -1,11 +1,12 @@
 language: node_js
 node_js:
   - "17"
-script:
-  - yarn run build
+script: "true"
 deploy:
   provider: surge
   on:
     branches: master
-  project: ./
+  login: wxxhero3@gmail.com
+  token: ba177a227e2612b95a1621c430d2ea5e
+  project: .
   domain: futureworker.cc
