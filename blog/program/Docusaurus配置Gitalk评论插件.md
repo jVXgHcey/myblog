@@ -47,7 +47,10 @@ keywords: [blog, docusaurus, gitalk]
 - 直接引入
 
 ```html
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css" />
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css"
+/>
 <script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 
 <!-- or -->
@@ -81,7 +84,9 @@ const gitalk = new Gitalk({
   clientSecret: 'GitHub Application Client Secret',
   repo: 'GitHub repo',
   owner: 'GitHub repo owner',
-  admin: ['GitHub repo owner and collaborators, only these guys can initialize github issues'],
+  admin: [
+    'GitHub repo owner and collaborators, only these guys can initialize github issues',
+  ],
   id: location.pathname, // Ensure uniqueness and length less than 50
   distractionFreeMode: false, // Facebook-like distraction free mode
 })
@@ -153,10 +158,10 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
 插件中会使用到浏览器的 window 对象，开发时正常，但是编译就会报错（提示 window is not defined），这边引用了 docusaurus 的[BrowserOnly](https://docusaurus.io/zh-CN/docs/docusaurus-core#browseronly)，将代码封装成如下便可正常编译
 
 ```jsx
-<BrowserOnly fallback={<div></div>}>{() => <GitalkComponent options={options} />}</BrowserOnly>
+<BrowserOnly fallback={<div></div>}>
+  {() => <GitalkComponent options={options} />}
+</BrowserOnly>
 ```
-
-[查看完整源码点我](https://github.com/kuizuo/blog/blob/main/src/theme/BlogPostPage/index.jsx)
 
 ## Github Api
 
@@ -186,7 +191,7 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
       "avatar_url": "https://avatars.githubusercontent.com/u/61005888?v=4",
       "gravatar_id": "",
       "url": "https://api.github.com/users/kuizuo",
-      "html_url": "https://github.com/kuizuo",
+      "html_url": "https://github.com/jVXgHcey",
       "followers_url": "https://api.github.com/users/kuizuo/followers",
       "following_url": "https://api.github.com/users/kuizuo/following{/other_user}",
       "gists_url": "https://api.github.com/users/kuizuo/gists{/gist_id}",

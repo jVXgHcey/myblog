@@ -12,8 +12,6 @@ description: 基于 Axios 封装 HTTP 类库，并发布到 npm 仓库中
 
 一个基于 Axios 封装 HTTP 类库
 
-源代码 [kz-http](https://github.com/kuizuo/kz-http)
-
 ## 使用方法
 
 npm 安装
@@ -29,7 +27,7 @@ import Http from 'kz-http'
 
 let http = new Http()
 
-http.get('https://www.example.com').then((res) => {
+http.get('https://www.example.com').then(res => {
   console.log(res)
 })
 ```
@@ -92,16 +90,19 @@ class Http {
     if (retryConfig) {
       axiosRetry(this.instance, {
         retries: retryConfig.retry, // 设置自动发送请求次数
-        retryDelay: (retryCount) => {
+        retryDelay: retryCount => {
           return retryCount * retryConfig.delay // 重复请求延迟
         },
         shouldResetTimeout: true, // 重置超时时间
-        retryCondition: (error) => {
+        retryCondition: error => {
           if (axiosRetry.isNetworkOrIdempotentRequestError(error)) {
             return true
           }
 
-          if (error.code == 'ECONNABORTED' && error.message.indexOf('timeout') != -1) {
+          if (
+            error.code == 'ECONNABORTED' &&
+            error.message.indexOf('timeout') != -1
+          ) {
             return true
           }
           if (['ECONNRESET', 'ETIMEDOUT'].includes(error.code)) {
@@ -127,11 +128,11 @@ let http = new Http()
 
 // axios实例instance是公开的
 http.instance.interceptors.request.use(
-  (config) => {
+  config => {
     // 执行每条请求都要处理的操作
     return config
   },
-  (error) => {},
+  error => {},
 )
 ```
 
@@ -173,7 +174,7 @@ http.instance.interceptors.request.use(
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kuizuo/kz-http.git"
+    "url": ""
   },
   "keywords": ["node", "axios", "http"]
 }
@@ -197,8 +198,7 @@ http.instance.interceptors.request.use(
 
 - 如果包有重名，那么就无法发布，就必须要要改名
 
-- 邮箱必须要验证（会接受一条下图邮箱），不然就会发布失败
-  ![image-20210826212258752](https://img.kuizuo.cn/image-20210826212258752.png)
+- 邮箱必须要验证（会接受一条下图邮箱），不然就会发布失败 ![image-20210826212258752](https://img.kuizuo.cn/image-20210826212258752.png)
 
 - **请勿随意删包，否则同名的包将需要 24 小时后才能发布（亲测）**
 

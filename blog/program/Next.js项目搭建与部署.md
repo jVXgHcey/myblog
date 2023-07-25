@@ -95,11 +95,11 @@ const User = () => {
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
-      .then((res) => res.json())
-      .then((data) => {
+      .then(res => res.json())
+      .then(data => {
         setData(data)
       })
-      .catch((err) => {})
+      .catch(err => {})
   }, [id])
 
   return (
@@ -192,7 +192,9 @@ export async function getStaticProps(context: { params: { id: any } }) {
 
 export async function getStaticPaths() {
   return {
-    paths: new Array(20).fill(0).map((a, i) => ({ params: { id: String(i + 1) } })),
+    paths: new Array(20)
+      .fill(0)
+      .map((a, i) => ({ params: { id: String(i + 1) } })),
     fallback: 'blocking',
   }
 }
@@ -217,7 +219,10 @@ type Data = {
   name: string
 }
 
-export default function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
+export default function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<Data>,
+) {
   res.status(200).json({ name: 'John Doe' })
 }
 ```
@@ -257,9 +262,13 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
       case 'POST':
         const { title, content } = req.body
 
-        db.get(`insert into post(title, content) values(?, ?)`, [title, content], (err, rows) => {
-          res.status(200).json(rows)
-        })
+        db.get(
+          `insert into post(title, content) values(?, ?)`,
+          [title, content],
+          (err, rows) => {
+            res.status(200).json(rows)
+          },
+        )
         break
     }
   } catch (error) {
@@ -284,9 +293,13 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
         })
         break
       case 'Put':
-        db.get(`update post set title=?,content=? where id=?`, [title, content, id], (err, rows) => {
-          res.status(200).json(rows)
-        })
+        db.get(
+          `update post set title=?,content=? where id=?`,
+          [title, content, id],
+          (err, rows) => {
+            res.status(200).json(rows)
+          },
+        )
       case 'DELETE':
         db.get(`delete from post where id=$id`, { $id: id }, (err, rows) => {
           res.status(200).json(rows)
@@ -308,9 +321,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
 
 既然说到部署，那肯定离不开 nextjs 的母公司[Vercel](https://vercel.com)了，关于 Vercel 之前也写过相关文章，关于 Vercel 就不过多介绍。
 
-nextjs 部署到 vercel 实在简单，将项目推送到 github 仓库中，然后在 vercel 中 New Project，接着选择 nextjs 的仓库，点击 Deploy，静等部署即可。关于部署可以看这篇文章 [Vercel 部署个人博客](https://kuizuo.cn/develop/Vercel部署个人博客)
-
-现在你可以通过访问 [kz-next-app-demo.vercel.app](https://kz-next-app-demo.vercel.app/) 来访问该项目，并尝试访问`/api/post`，`user/1`来看看。
+nextjs 部署到 vercel 实在简单，将项目推送到 github 仓库中，然后在 vercel 中 New Project，接着选择 nextjs 的仓库，点击 Deploy，静等部署即可。
 
 只能说不愧是母公司。
 

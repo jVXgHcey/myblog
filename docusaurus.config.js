@@ -7,7 +7,7 @@ const announcementBarContent = ''
 const config = {
   title: '西蒙的博客',
   titleDelimiter: '-',
-  url: 'http://www.futureworker.cc/',
+  url: 'https://simonfw.surge.sh/',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
   organizationName: 'simon',
