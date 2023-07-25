@@ -6,6 +6,6 @@ deploy:
   provider: surge
   on:
     branches: master
-  project: ./build
+  project: ./build/
   domain: futureworker.cc
 
