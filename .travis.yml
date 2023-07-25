@@ -4,6 +4,8 @@ node_js:
 script: 'true'
 deploy:
   provider: surge
-  project: ./build/
+  on:
+    branches: master
+  project: ./static/
   domain: futureworker.cc
 
