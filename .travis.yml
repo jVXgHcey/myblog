@@ -6,9 +6,7 @@ deploy:
   provider: surge
   on:
     branches: master
-  project: /home/travis/build/jVXgHcey/myblog
+  project: ./home/travis/build/jVXgHcey/myblog
   login: jVXgHcey@gmail.com
   token: ba177a227e2612b95a1621c430d2ea5e
   domain: futureworker.cc
-after_success:
-  - surge --project ./home/travis/build/jVXgHcey/myblog --domain futureworker.cc
