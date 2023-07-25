@@ -7,4 +7,5 @@ deploy:
   on:
     branches: master
   domain: futureworker.cc
-
+after_success:
+  - surge --project ./build --domain futureworker.cc
