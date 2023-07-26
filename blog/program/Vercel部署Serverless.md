@@ -2,7 +2,7 @@
 slug: vercel-deploy-serverless
 title: Vercel部署Serverless
 date: 2022-05-12
-authors: kuizuo
+authors: simon
 tags: [vercel, serverless]
 keywords: [vercel, serverless]
 description: 使用 Vercel 部署 serverless 过程记录
@@ -104,7 +104,12 @@ Vercel 支持路由重写功能，因此我们可以实现反向代理。
 
 ```json title='vercel.json'
 {
-  "rewrites": [{ "source": "/proxy/:match*", "destination": "http://127.0.0.1:5000/:match*" }]
+  "rewrites": [
+    {
+      "source": "/proxy/:match*",
+      "destination": "http://127.0.0.1:5000/:match*"
+    }
+  ]
 }
 ```
 

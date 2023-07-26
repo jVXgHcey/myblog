@@ -3,7 +3,7 @@ id: typescript-advanced-grammar
 slug: /typescript-advanced-grammar
 title: TypeScript高级语法
 date: 2022-06-25
-authors: kuizuo
+authors: simon
 tags: [typescript]
 keywords: [typescript]
 ---
@@ -45,7 +45,7 @@ type User = typeof user
 //   };
 // }
 
-type Address = typeof user['address']
+type Address = (typeof user)['address']
 // {
 //    province: string;
 //    city: string;
@@ -252,7 +252,13 @@ type Wrong3<T> = T extends (infer U)[] ? T : U
 一些例子
 
 ```typescript
-type Unpacked<T> = T extends (infer U)[] ? U : T extends (...args: any[]) => infer U ? U : T extends Promise<infer U> ? U : T
+type Unpacked<T> = T extends (infer U)[]
+  ? U
+  : T extends (...args: any[]) => infer U
+  ? U
+  : T extends Promise<infer U>
+  ? U
+  : T
 
 type T0 = Unpacked<string> // string
 type T1 = Unpacked<string[]> // string

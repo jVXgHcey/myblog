@@ -2,7 +2,7 @@
 slug: strapi-user-register-and-login
 title: Strapi 实现用户注册与登录
 date: 2022-09-03
-authors: kuizuo
+authors: simon
 tags: [strapi, nuxt, next]
 keywords: [strapi, nuxt, next]
 description: Strapi 实现用户注册与登录
@@ -48,7 +48,7 @@ Authenticated 对应的也就是登录后的角色，即携带 **Authorization**
 
 在 **设置 => 管理员权限** 也可以看到角色列表与用户列表，不过这个只针对登录 strapi 仪表盘的用户，与实际业务的用户毫不相干。通俗点说就是数据库系统的用户与后台管理系统用户的区别。
 
-一开始登录面板创建的用户在 **设置 => 管理员权限 => 用户列表** 中可以看到，而通过api http://localhost:1337/api/auth/local/register 注册的用户则是在 **内容管理 => User** 中查看。
+一开始登录面板创建的用户在 **设置 => 管理员权限 => 用户列表** 中可以看到，而通过 api http://localhost:1337/api/auth/local/register 注册的用户则是在 **内容管理 => User** 中查看。
 
 ## 使用 HTTP 请求用户操作（通用）
 
@@ -60,8 +60,7 @@ Authenticated 对应的也就是登录后的角色，即携带 **Authorization**
 
 分别可在 [Login](https://docs.strapi.io/developer-docs/latest/plugins/users-permissions.html#login) 与 [Register](https://docs.strapi.io/developer-docs/latest/plugins/users-permissions.html#registration) 中查看官方演示例子，例如
 
-import Tabs from '@theme/Tabs'; 
-import TabItem from '@theme/TabItem';
+import Tabs from '@theme/Tabs'; import TabItem from '@theme/TabItem';
 
 ```mdx-code-block
 <Tabs>
@@ -69,23 +68,24 @@ import TabItem from '@theme/TabItem';
 ```
 
 ```js {4}
-import axios from 'axios';
+import axios from 'axios'
 
 // Request API.
-axios.post('http://localhost:1337/api/auth/local', {
+axios
+  .post('http://localhost:1337/api/auth/local', {
     identifier: 'user@strapi.io',
     password: 'strapiPassword',
   })
-  .then((response) => {
+  .then(response => {
     // Handle success.
-    console.log('Well done!');
-    console.log('User profile', response.data.user);
-    console.log('User token', response.data.jwt);
+    console.log('Well done!')
+    console.log('User profile', response.data.user)
+    console.log('User token', response.data.jwt)
   })
-  .catch((error) => {
+  .catch(error => {
     // Handle error.
-    console.log('An error occurred:', error.response);
-  });
+    console.log('An error occurred:', error.response)
+  })
 ```
 
 ```mdx-code-block
@@ -94,24 +94,25 @@ axios.post('http://localhost:1337/api/auth/local', {
 ```
 
 ```js {4}
-import axios from 'axios';
+import axios from 'axios'
 
 // Request API.
-axios.post('http://localhost:1337/api/auth/local/register', {
+axios
+  .post('http://localhost:1337/api/auth/local/register', {
     username: 'Strapi user',
     email: 'user@strapi.io',
     password: 'strapiPassword',
   })
-  .then((response) => {
+  .then(response => {
     // Handle success.
-    console.log('Well done!');
-    console.log('User profile', response.data.user);
-    console.log('User token', response.data.jwt);
+    console.log('Well done!')
+    console.log('User profile', response.data.user)
+    console.log('User token', response.data.jwt)
   })
-  .catch((error) => {
+  .catch(error => {
     // Handle error.
-    console.log('An error occurred:', error.response);
-  });
+    console.log('An error occurred:', error.response)
+  })
 ```
 
 ```mdx-code-block
@@ -119,7 +120,7 @@ axios.post('http://localhost:1337/api/auth/local/register', {
 </Tabs>
 ```
 
-除了登录外，还有几个api可能还会用到如获取个人信息，重置密码，修改密码，发送邮箱验证等等。更多可到 [Roles & Permissions](https://docs.strapi.io/developer-docs/latest/plugins/users-permissions.html#authentication) 中查看
+除了登录外，还有几个 api 可能还会用到如获取个人信息，重置密码，修改密码，发送邮箱验证等等。更多可到 [Roles & Permissions](https://docs.strapi.io/developer-docs/latest/plugins/users-permissions.html#authentication) 中查看
 
 通过 HTTP 这种方案可以说是最通用的了，不过有些框架还提供相应的模块来调用 Strapi。
 
@@ -133,16 +134,15 @@ axios.post('http://localhost:1337/api/auth/local/register', {
 
 :::note
 
-原本我考虑的是使用 starter 方式来创建nuxt3 strapi项目，但是就在我创建完 starter 与 template 准备使用 `yarn create strapi-starter strapi-nuxt3 https://github.com/kuizuo/strapi-starter-nuxt3` 下载模板时，不出意外又出意外的报错了，由于这个报错也不好排查就暂时放弃了。
+原本我考虑的是使用 starter 方式来创建 nuxt3 strapi 项目，但是就在我创建完 starter 与 template 准备使用 `yarn create strapi-starter strapi-nuxt3 https://github.com/kuizuo/strapi-starter-nuxt3` 下载模板时，不出意外又出意外的报错了，由于这个报错也不好排查就暂时放弃了。
 
 总之又是一趟白折腾的经过。
 
 :::
 
-
 ## Next
 
-Next 我暂未找到相关库可以像 Nuxt 提供 Strapi 的服务。不过 Strapi 官方有提供 [sdk](https://github.com/strapi/strapi-sdk-javascript)的方案来调用 strapi 服务，而不用发送 http 请求的形式来调用，具体可以到官方提供的 [sdk](https://github.com/strapi/strapi-sdk-javascript) 查看如何使用，这里不做演示。有如下两个SDK可供选择：
+Next 我暂未找到相关库可以像 Nuxt 提供 Strapi 的服务。不过 Strapi 官方有提供 [sdk](https://github.com/strapi/strapi-sdk-javascript)的方案来调用 strapi 服务，而不用发送 http 请求的形式来调用，具体可以到官方提供的 [sdk](https://github.com/strapi/strapi-sdk-javascript) 查看如何使用，这里不做演示。有如下两个 SDK 可供选择：
 
 [strapi/strapi-sdk-javascript](https://github.com/strapi/strapi-sdk-javascript) 官网
 

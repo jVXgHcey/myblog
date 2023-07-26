@@ -2,7 +2,7 @@
 slug: use-github-action-to-auto-deploy
 title: 使用Travis CI自动化部署
 date: 2023-07-26
-authors: kuizuo
+authors: simon
 tags: [github, git]
 keywords: [github, git]
 ---

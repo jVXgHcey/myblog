@@ -3,7 +3,7 @@ id: github-actions-example
 slug: github-actions-example
 title: github actions示例
 date: 2021-10-01
-authors: kuizuo
+authors: simon
 tags: [github, action]
 keywords: [github, action]
 ---
@@ -11,7 +11,6 @@ keywords: [github, action]
 <!-- truncate -->
 
 [GitHub Marketplace · Actions to improve your workflow](https://github.com/marketplace?type=actions)
-
 
 ## 测试 输出
 
@@ -215,14 +214,14 @@ SSH_PRIVATE_KEY 是 SSH 密钥，可通过 `ssh-keygen` （生成位置/root/.ss
 ## ftp 文件传输
 
 ```yaml
-      - name: FTP Deploy
-        uses: SamKirkland/FTP-Deploy-Action@4.0.0
-        with:
-          server: ${{ secrets.ftp_server }}
-          username: ${{ secrets.ftp_user }}
-          password: ${{ secrets.ftp_pwd }}
-          local-dir: ./build/
-          server-dir: ./
+- name: FTP Deploy
+  uses: SamKirkland/FTP-Deploy-Action@4.0.0
+  with:
+    server: ${{ secrets.ftp_server }}
+    username: ${{ secrets.ftp_user }}
+    password: ${{ secrets.ftp_pwd }}
+    local-dir: ./build/
+    server-dir: ./
 ```
 
 ## 发布 release / npm 包

@@ -2,7 +2,7 @@
 slug: js-function-hook
 title: JS函数hook
 date: 2021-11-22
-authors: kuizuo
+authors: simon
 tags: [javascript, hook]
 keywords: [javascript, hook]
 ---
@@ -148,10 +148,7 @@ add(1, 2)
 // result 3
 ```
 
-:::danger
-注：这种装饰方式叠加了函数的作用域，如果装饰的链条过长，性能上也会受到一定的影响
-:::
-但该方法是直接修改原型方法，有些不喜欢污染原型的方式（用原型方式是真的好写），那么做一些变通，将原函数和新函数作为参数传入，代码如下
+:::danger 注：这种装饰方式叠加了函数的作用域，如果装饰的链条过长，性能上也会受到一定的影响 ::: 但该方法是直接修改原型方法，有些不喜欢污染原型的方式（用原型方式是真的好写），那么做一些变通，将原函数和新函数作为参数传入，代码如下
 
 ```javascript
 let before = function (fn, beforefn) {

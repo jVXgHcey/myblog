@@ -2,7 +2,7 @@
 slug: remote-call-browser-function
 title: RPC远程调用浏览器函数
 date: 2021-10-09
-authors: kuizuo
+authors: simon
 tags: [javascript, rpc, browser]
 keywords: [javascript, rpc, browser]
 ---
@@ -54,7 +54,7 @@ let ws = new WebSocketServer({
   port: 8080,
 })
 
-ws.on('connection', (socket) => {
+ws.on('connection', socket => {
   function message(msg) {
     console.log('接受到的msg: ' + msg)
     socket.send('我接受到你的数据: ' + msg)
@@ -77,7 +77,7 @@ import WebSocket, { WebSocketServer } from 'ws'
 
 let ws = new WebSocketServer({ port: 8080 })
 
-ws.on('connection', (socket) => {
+ws.on('connection', socket => {
   console.log('有人连接了')
   function message(data) {
     try {
@@ -190,7 +190,7 @@ async function getPasswordEnc(password) {
       ws.send(jsonStr)
     })
 
-    ws.on('message', (message) => {
+    ws.on('message', message => {
       let json = JSON.parse(message)
       let { type, value } = json
       switch (type) {
@@ -226,7 +226,7 @@ let ws = new WebSocketServer({ port: 8080 })
 let browserWebsocket = null
 let clients = []
 
-ws.on('connection', (socket) => {
+ws.on('connection', socket => {
   let client_id = uuidv4()
   clients.push({
     id: client_id,
@@ -242,7 +242,7 @@ ws.on('connection', (socket) => {
     }
   })
 
-  socket.on('message', (message) => {
+  socket.on('message', message => {
     try {
       let json = JSON.parse(message)
       let { id, type, value } = json
@@ -257,7 +257,7 @@ ws.on('connection', (socket) => {
         // 发送给浏览器 让浏览器来调用并返回
         case 'callbackPasswordEnc':
           // 根据id找到调用用户的socket,并向该用户发送加密后的密文
-          let temp_socket = clients.find((c) => c.id == id).socket
+          let temp_socket = clients.find(c => c.id == id).socket
 
           temp_socket.send(message)
           break
@@ -307,7 +307,7 @@ async function getPasswordEnc(password) {
       ws.send(jsonStr)
     })
 
-    ws.on('message', (message) => {
+    ws.on('message', message => {
       let json = JSON.parse(message)
       let { type, value } = json
       switch (type) {
@@ -344,9 +344,5 @@ app.listen(8000, () => {
 至于说我为什么要在 http 内在新建一个 ws 客户端，主要原因还是 websocket 服务端向浏览器发送调用的算法，但只能在 websocket 服务端中的通过 onmessage 接受，无法在 http 服务端接受到，就别说向用户端返回了。这里其实只是不让用户来进行连接 websocket，而是我们本地（服务器）在接受到 getPasswordEnc 请求，复现了一遍上面用户连接 websocket 的例子，并将其转为 http 请求返回给用户而已。
 
 **其实也就是多了一个调用的 HTTP 服务器，而这里将 http 服务器与 websocket 服务器写到一起而已**
-
-## 代码地址
-
-https://github.com/kuizuo/rpc-browser.git
 
 运行方式请查看 README.md

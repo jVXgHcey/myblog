@@ -2,7 +2,7 @@
 id: editorconfig
 slug: /editorconfig
 title: editorconfig
-authors: kuizuo
+authors: simon
 keywords: ['code-specification', 'editorconfig']
 ---
 

@@ -2,7 +2,7 @@
 slug: use-github-action-to-auto-deploy
 title: 使用Github Action自动化部署
 date: 2022-05-11
-authors: kuizuo
+authors: simon
 tags: [github, git]
 keywords: [github, git]
 ---
@@ -113,7 +113,7 @@ git push 后，稍等片刻再次访问便可得到如下页面
 
 ![image-20220511125536189](https://img.kuizuo.cn/image-20220511125536189.png)
 
-## FTP发布到自有服务器上
+## FTP 发布到自有服务器上
 
 那么现在在 Github Page 上搭建好了，但还要将编译后的文件还可以通过 FTP 协议添加自己的服务器上，这里我就以我的博客为例。
 
@@ -158,7 +158,7 @@ jobs:
 
 但由于 build 下存在大量文件夹与文件，所以 FTP 速度上传速度堪忧，最终耗时 17 minutes 38.4 seconds。这里只是作为 FTP 演示。
 
-## SCP发布到自有服务器上
+## SCP 发布到自有服务器上
 
 FTP 传输文件着实过慢，所以可以通过 SCP 的方式来传输文件，这里用到了[ssh deploy · Actions](https://github.com/marketplace/actions/ssh-deploy)，以下是示例
 
@@ -199,7 +199,7 @@ jobs:
           TARGET: '/www/wwwroot/blog'
 ```
 
-其中 **PRIVATE_KEY** 为服务器SSH登录的私钥，**REMOTE_HOST** 就是服务器的ip地址。当然，这些参数也都作为私密信息，也是要通过New repository secret来设置的。
+其中 **PRIVATE_KEY** 为服务器 SSH 登录的私钥，**REMOTE_HOST** 就是服务器的 ip 地址。当然，这些参数也都作为私密信息，也是要通过 New repository secret 来设置的。
 
 ## 总结
 

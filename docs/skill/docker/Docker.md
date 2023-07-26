@@ -3,7 +3,7 @@ id: docker
 slug: /docker
 title: Docker笔记
 date: 2021-05-26
-authors: kuizuo
+authors: simon
 tags: [docker]
 keywords: [docker]
 ---
@@ -178,8 +178,7 @@ docker ps
 
 ```
 
-常见的坑 docker 容器使用后台运行 就必须要有一个前台应用,否则将会自动停止
-nginx 容器启动后 发现自己没有提供服务 就会立刻停止 **就是没有程序了**
+常见的坑 docker 容器使用后台运行 就必须要有一个前台应用,否则将会自动停止 nginx 容器启动后 发现自己没有提供服务 就会立刻停止 **就是没有程序了**
 
 #### 查看容器内的进程信息
 
@@ -225,7 +224,6 @@ docker run -it -v 主机目录:容器目录
 
 注意 路径前有`/` 为绝对路径
 
-
 #### 匿名挂载
 
 只指定容器内的名字
@@ -269,19 +267,17 @@ rw 可读写 readwirte  默认rw
 
 #### 例子
 
-安装Mysql
+安装 Mysql
 
 ```sh
 docker run -d -p 3307:3306 --privileged=true -v /data/mysql/log:/var/log/mysql -v /data/mysql/data:/var/lib/mysql -v /opt/docker/mysql/conf:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=123456 --name mysql mysql:5.7
 ```
 
-安装Redis
+安装 Redis
 
 ```
 docker run -d -p 6379:6379 --privileged=true -v /app/redis/redis.conf:/etc/redis/redis.conf -v /app/redis/data:/data -e MYSQL_ROOT_PASSWORD=123456 --name mysql mysql:5.7 redos-server /etc/redis/redis.conf
 ```
-
-
 
 ## DockerFile
 

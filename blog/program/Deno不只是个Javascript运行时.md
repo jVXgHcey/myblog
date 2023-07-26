@@ -2,7 +2,7 @@
 slug: deno-is-not-only-a-javascript-runtime
 title: Deno 不只是个 Javascript 运行时
 date: 2023-01-20
-authors: kuizuo
+authors: simon
 tags: [deno, node, javascript, typescript]
 keywords: [deno, node, javascript, typescript]
 ---
@@ -30,13 +30,13 @@ deno 刚出的时候就听闻了，传言 deno 是下一代 node.js。不过如�
   "deno.enable": true,
   "deno.lint": true,
   "editor.formatOnSave": true,
-  "[typescript]": {"editor.defaultFormatter": "denoland.vscode-deno"}
+  "[typescript]": { "editor.defaultFormatter": "denoland.vscode-deno" }
 }
 ```
 
 在 vscode 中默认会将 ts 代码认为是 node 运行时环境，因此需要在项目工程下手动配置并启用 deno，让 vscode 以 deno 运行时环境来语法解析 ts 代码。
 
-## deno 的一些亮点💡
+## deno 的一些亮点 💡
 
 因为 deno 与 node 一样，都是 javascript 运行时（deno 合理来说是 typescript 运行时）。所以在 javascript 的部分就没什么好说的了，主要对比 deno 相比与 node 的优势，或说我个人觉得一些使用亮点。
 
@@ -107,14 +107,14 @@ node 也不一定要用 npm 来下载模块，也可以本地模块或者私有�
 **Command: deno run ./remote.ts**
 
 ```typescript title='remote.ts'
-import {add, multiply} from 'https://x.nest.land/ramda@0.27.0/source/index.js';
+import { add, multiply } from 'https://x.nest.land/ramda@0.27.0/source/index.js'
 
 function totalCost(outbound: number, inbound: number, tax: number): number {
-  return multiply(add(outbound, inbound), tax);
+  return multiply(add(outbound, inbound), tax)
 }
 
-console.log(totalCost(19, 31, 1.2));
-console.log(totalCost(45, 27, 1.15));
+console.log(totalCost(19, 31, 1.2))
+console.log(totalCost(45, 27, 1.15))
 
 /**
  * Output
@@ -158,15 +158,15 @@ deno info 还可以查看 deno 的相关配置，默认缓存都设置在 C 盘�
 
 ```typescript title="app.ts" {2}
 // @deno-types="npm:@types/express@^4.17"
-import express from 'npm:express@^4.17';
-const app = express();
+import express from 'npm:express@^4.17'
+const app = express()
 
 app.get('/', (req, res) => {
-  res.send('Hello World');
-});
+  res.send('Hello World')
+})
 
-app.listen(3000);
-console.log('listening on http://localhost:3000/');
+app.listen(3000)
+console.log('listening on http://localhost:3000/')
 ```
 
 deno 刚发布的时候，甚至还不支持 NPM 软件包，这无非是要告诉用户 deno 社区没有轮子，要求用户自己去造一个。不过 deno 团队还是做出了比较正确的选择，支持 npm 软件包，并且还非常友好。
@@ -237,9 +237,7 @@ deno 相关的亮点我也差不多介绍完了，也许你对 deno 已经有一
 
 作为 node 开发者，我肯定会说 node 火，不过更多是对 javascript 来说火。
 
-:::info 2022 State of JS
-2022 也结束了，不妨查看 [2022 State of JS](https://2022.stateofjs.com '2022 State of JS') 数据报告统计，看看 JavaScript 在 2022 年是如何发展的吧。
-:::
+:::info 2022 State of JS 2022 也结束了，不妨查看 [2022 State of JS](https://2022.stateofjs.com '2022 State of JS') 数据报告统计，看看 JavaScript 在 2022 年是如何发展的吧。 :::
 
 如今 typescript 大势所趋，说 javascript 就等同于说 typescript，而 javascript 和 node 绑定已成事实，而前端也与 javascript 所绑定，如今的前端工程师要是不会 node，都不好意思说自己是个前端工程师。就现阶段看，没了 nodejs，前端技术得倒退十年（不夸张）。
 
@@ -257,7 +255,7 @@ deno 相关的亮点我也差不多介绍完了，也许你对 deno 已经有一
 
 扪心自问，我真的很希望 deno 能火，就开发体验而言，比 node 好用太多了，但好用的东西代表不了用的人就多，这个领域中，生态尤为重要。想要让 node 用户转到 deno 开发还有很长一段路要走。
 
-再来反问自己，我现在会将 deno 作为 node 替代品吗，我想我和多数 node 开发者一样，都不会将 deno 作为主力语言(因为有很多项目都已经使用node来进行开发与推动)。但作为个人开发者，尤其是 node 开发者，我认为还是非常有必要去尝试一番 deno，亲手目睹"下一代Node"。
+再来反问自己，我现在会将 deno 作为 node 替代品吗，我想我和多数 node 开发者一样，都不会将 deno 作为主力语言(因为有很多项目都已经使用 node 来进行开发与推动)。但作为个人开发者，尤其是 node 开发者，我认为还是非常有必要去尝试一番 deno，亲手目睹"下一代 Node"。
 
 希望本文能对你了解 deno 有所帮助。
 

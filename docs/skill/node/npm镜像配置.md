@@ -3,7 +3,7 @@ id: npm-mirror-config
 slug: /npm-mirror-config
 title: npm镜像配置
 date: 2022-03-17
-authors: kuizuo
+authors: simon
 tags: [node, npm, electron]
 keywords: [node, npm, electron]
 ---
@@ -43,7 +43,7 @@ npm config set registry https://registry.npmmirror.com
 npm get registry
 ```
 
-## nrm镜像管理工具
+## nrm 镜像管理工具
 
 ```
 npm install nrm -g
@@ -79,4 +79,3 @@ npm config set ELECTRON_MIRROR https://npmmirror.com/mirrors/electron/
 
 npm config set ELECTRON_BUILDER_BINARIES_MIRROR https://npmmirror.com/mirrors/electron-builder-binaries/
 ```
-

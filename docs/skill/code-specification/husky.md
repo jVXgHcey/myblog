@@ -2,7 +2,7 @@
 id: husky
 slug: /husky
 title: husky
-authors: kuizuo
+authors: simon
 keywords: ['code-style', 'husky']
 ---
 
@@ -74,7 +74,7 @@ echo "module.exports = {extends: ['@commitlint/config-conventional']}" > commitl
 windows 系统请勿使用上行命令，否则会导致编码不是 UTF-8。建议直接复制文本内容到 `commitlint.config.js`
 
 ```javascript title='commitlint.config.js'
-module.exports = {extends: ['@commitlint/config-conventional']};
+module.exports = { extends: ['@commitlint/config-conventional'] }
 ```
 
 :::

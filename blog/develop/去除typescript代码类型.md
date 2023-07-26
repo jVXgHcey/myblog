@@ -2,14 +2,14 @@
 slug: remove-ts-code-type
 title: 去除typescript代码类型
 date: 2022-03-24
-authors: kuizuo
+authors: simon
 tags: [javascript, typescript]
 keywords: [javascript, typescript]
 ---
 
 在**短时间**内有一个需求，原项目代码是 js，而我手里头的功能代码是 ts 的，需要将其合并。
 
-按照以往，我通常会将 js 改写成 ts，但时间方面有限，就采取js的方式。**因此希望将 ts 代码转换为存 js 代码**，只需要把 ts 中的类型直接删除即可，也就是标题所表明的意思。以下在线转化工具能够做到。
+按照以往，我通常会将 js 改写成 ts，但时间方面有限，就采取 js 的方式。**因此希望将 ts 代码转换为存 js 代码**，只需要把 ts 中的类型直接删除即可，也就是标题所表明的意思。以下在线转化工具能够做到。
 
 [TypeScript to plain JavaScript (transform.tools)](https://transform.tools/typescript-to-javascript)
 

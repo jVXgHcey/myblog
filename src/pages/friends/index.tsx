@@ -7,10 +7,6 @@ import { Friends, type Friend } from '@site/data/friend'
 
 import styles from './styles.module.css'
 
-const TITLE = '友链'
-const DESCRIPTION = '请点击下方按钮申请友链，熟人可直接找我~'
-const ADD_FRIEND_URL = 'https://github.com/kuizuo/blog/edit/main/data/friend.ts'
-
 function FriendHeader() {
   return (
     <section className="margin-top--lg margin-bottom--lg text--center">
@@ -22,7 +18,6 @@ function FriendHeader() {
   // 本站信息
   title: '西蒙的小站',
   description: '道阻且长，行则将至',
-  avatar: 'https://kuizuo.cn/img/logo.png'
 }`}
         </CodeBlock>
       </div>

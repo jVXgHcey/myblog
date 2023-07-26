@@ -3,7 +3,7 @@ id: js-print-stack-of-function
 slug: /js-print-stack-of-function
 title: JS输出函数调用栈
 date: 2021-10-15
-authors: kuizuo
+authors: simon
 tags: [javascript, callstack]
 keywords: [javascript, callstack]
 ---
@@ -185,7 +185,7 @@ main()
 
 function printStack() {
   const callstack = new Error().stack.split('\n')
-  callstack.forEach((s) => {
+  callstack.forEach(s => {
     let matchArray = s.match(/at (.+?) \((.+?)\)/)
     if (!matchArray) return
 

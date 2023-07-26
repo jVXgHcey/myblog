@@ -3,7 +3,7 @@ id: vue-reactive-data-array
 slug: /vue-reactive-data-array
 title: Vue响应式数据之Array
 date: 2022-05-12
-authors: kuizuo
+authors: simon
 tags: [vue, javascript]
 keywords: [vue, javascript]
 ---
@@ -53,28 +53,30 @@ function def(obj, key, val, enumerable) {
   })
 }
 
-;['push', 'pop', 'shift', 'unshift', 'splice', 'sort', 'reverse'].forEach(function (method) {
-  const original = arrayProto[method]
+;['push', 'pop', 'shift', 'unshift', 'splice', 'sort', 'reverse'].forEach(
+  function (method) {
+    const original = arrayProto[method]
 
-  def(arrayMethods, method, function mutator(...args) {
-    const result = original.apply(this, args)
-    let inserted
-    switch (method) {
-      case 'push':
-      case 'unshift':
-        inserted = args
-        break
-      case 'splice':
-        inserted = args.slice(2)
-        break
-    }
+    def(arrayMethods, method, function mutator(...args) {
+      const result = original.apply(this, args)
+      let inserted
+      switch (method) {
+        case 'push':
+        case 'unshift':
+          inserted = args
+          break
+        case 'splice':
+          inserted = args.slice(2)
+          break
+      }
 
-    if (inserted) {
-      console.log('ADD', args)
-    }
-    return result
-  })
-})
+      if (inserted) {
+        console.log('ADD', args)
+      }
+      return result
+    })
+  },
+)
 
 function observerArray(arr) {
   arr.__proto__ = arrayMethods
@@ -132,7 +134,13 @@ function reactive(target) {
     set(target, key, newVal, receiver) {
       const oldVal = target[key]
 
-      const type = Array.isArray(target) ? (Number(key) < target.length ? 'SET' : 'ADD') : Object.prototype.hasOwnProperty.call(target, key) ? 'SET' : 'ADD'
+      const type = Array.isArray(target)
+        ? Number(key) < target.length
+          ? 'SET'
+          : 'ADD'
+        : Object.prototype.hasOwnProperty.call(target, key)
+        ? 'SET'
+        : 'ADD'
 
       const res = Reflect.set(target, key, newVal, receiver)
 

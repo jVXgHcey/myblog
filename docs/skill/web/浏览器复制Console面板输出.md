@@ -3,7 +3,7 @@ id: brower-copy-console-panel-output
 slug: /brower-copy-console-panel-output
 title: 浏览器复制Console面板输出
 date: 2021-12-07
-authors: kuizuo
+authors: simon
 tags: [javascript, browser, console]
 keywords: [javascript, browser, console]
 ---
@@ -14,7 +14,10 @@ keywords: [javascript, browser, console]
 
 ```javascript
 // 模拟生成的数据
-let data = Array.from({ length: 100 }, (v, i) => ({ index: i, value: Math.random() }))
+let data = Array.from({ length: 100 }, (v, i) => ({
+  index: i,
+  value: Math.random(),
+}))
 ```
 
 ![image-20211207122529224](https://img.kuizuo.cn/image-20211207122529224.png)

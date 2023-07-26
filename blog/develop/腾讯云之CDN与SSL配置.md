@@ -2,7 +2,7 @@
 slug: tencent-cloud-cdn-and-ssl
 title: 腾讯云之CDN与SSL配置
 date: 2020-12-15
-authors: kuizuo
+authors: simon
 tags: [cloud-services]
 keywords: [cloud-services]
 ---
@@ -79,8 +79,7 @@ keywords: [cloud-services]
 
 ![image-20210808150559353](https://img.kuizuo.cn/image-20210808150559353.png)
 
-部署类型选择内容分发网络（CDN），点击确定
-随后会跳转到证书配置页面，刚刚设置的域名 test.kzcode.cn 还有申请的免费 SSL 证书 test，选择腾讯云托管证书，向下图这样提交
+部署类型选择内容分发网络（CDN），点击确定随后会跳转到证书配置页面，刚刚设置的域名 test.kzcode.cn 还有申请的免费 SSL 证书 test，选择腾讯云托管证书，向下图这样提交
 
 ![image-20201215015319153](https://img.kuizuo.cn/image-20201215015319153.png)
 

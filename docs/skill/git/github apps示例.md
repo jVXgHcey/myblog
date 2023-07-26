@@ -3,7 +3,7 @@ id: github-apps-example
 slug: github-apps-example
 title: github apps示例
 date: 2021-10-01
-authors: kuizuo
+authors: simon
 tags: [github, app]
 keywords: [github, app]
 ---
@@ -24,21 +24,21 @@ keywords: [github, app]
 
 ![image-20221001172149673](https://img.kuizuo.cn/image-20221001172149673.png)
 
-其中要修改 package-ecosystem 配置，也就是包管理器，比如node就用npm，python就用pip。可以在 [About Dependabot version updates - GitHub Docs](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#supported-repositories-and-ecosystems) 中查看。
+其中要修改 package-ecosystem 配置，也就是包管理器，比如 node 就用 npm，python 就用 pip。可以在 [About Dependabot version updates - GitHub Docs](https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/about-dependabot-version-updates#supported-repositories-and-ecosystems) 中查看。
 
-然后配置完毕后，根据时间周期，就会自动检测依赖更新，并创建一个pull request 请求，仓库拥有者根据实际需要合并即可。
+然后配置完毕后，根据时间周期，就会自动检测依赖更新，并创建一个 pull request 请求，仓库拥有者根据实际需要合并即可。
 
 ### [Stale](https://github.com/marketplace/stale)
 
-可在一段时间不活动后关闭废弃的问题。即**关闭长时间未回复的issues**。
+可在一段时间不活动后关闭废弃的问题。即**关闭长时间未回复的 issues**。
 
 ### [Imgbot](https://github.com/marketplace/imgbot)
 
-Imgbot是一个友好的机器人，可以优化您的图像并节省您的时间。优化的图像意味着在不牺牲质量的情况下减小文件大小。
+Imgbot 是一个友好的机器人，可以优化您的图像并节省您的时间。优化的图像意味着在不牺牲质量的情况下减小文件大小。
 
 ### [giscus](https://github.com/marketplace/giscus)
 
-由 GitHub 讨论提供支持的评论系统。让访问者通过GitHub在您的网站上发表评论和反应！
+由 GitHub 讨论提供支持的评论系统。让访问者通过 GitHub 在您的网站上发表评论和反应！
 
 ### [WakaTime](https://github.com/marketplace/wakatime)
 

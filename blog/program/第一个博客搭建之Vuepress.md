@@ -2,7 +2,7 @@
 slug: first-blog-is-vuepress
 title: 第一个博客搭建之Vuepress
 date: 2020-08-30
-authors: kuizuo
+authors: simon
 tags: [blog, vuepress, project]
 keywords: [blog, vuepress, project]
 ---

@@ -2,7 +2,7 @@
 slug: vite-webworker
 title: Vite使用WebWorker
 date: 2022-07-26
-authors: kuizuo
+authors: simon
 tags: [vite, webworker]
 keywords: [vite, webworker]
 ---
@@ -53,7 +53,7 @@ const worker = new Worker()
 这个 worker 就是所要的 Worker 对象，接着就可以对象的 postMessage 与 onmessage 来数据通信，如
 
 ```javascript title="main.js"
-worker.onmessage = (e) => {
+worker.onmessage = e => {
   console.log('main.js', e.data)
 }
 
@@ -77,9 +77,9 @@ self.addEventListener(
 const worker = new Worker(new URL('./worker.js', import.meta.url))
 ```
 
-这种方式相对更加标准，但是如果worker并不是一个js文件，而是ts文件，并且还夹杂一些第三方的包，这种方式是有可能会失败，本人测试是这样的，所以推荐一开始的方式，也就是带有查询后缀的导入。
+这种方式相对更加标准，但是如果 worker 并不是一个 js 文件，而是 ts 文件，并且还夹杂一些第三方的包，这种方式是有可能会失败，本人测试是这样的，所以推荐一开始的方式，也就是带有查询后缀的导入。
 
-在打包的时候将其实所用到引入的依赖合并成一个文件，如果打开开发者工具，可以在源代码面板的右侧线程中看到主线程，以及worker线程。
+在打包的时候将其实所用到引入的依赖合并成一个文件，如果打开开发者工具，可以在源代码面板的右侧线程中看到主线程，以及 worker 线程。
 
 ## 参考文章
 

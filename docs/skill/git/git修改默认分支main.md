@@ -3,7 +3,7 @@ id: git-change-default-branch
 slug: git-change-default-branch
 title: git修改默认分支main
 date: 2021-08-04
-authors: kuizuo
+authors: simon
 tags: [git]
 keywords: [git]
 ---
@@ -43,4 +43,3 @@ Git 版本为 **v2.28** 或更高 查看版本 `git --version`
 ```
 git config core.ignorecase false
 ```
-

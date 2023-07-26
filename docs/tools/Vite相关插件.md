@@ -3,7 +3,7 @@ id: vite-plugin
 slug: /vite-plugin
 title: Vite相关插件
 date: 2022-04-10
-authors: kuizuo
+authors: simon
 tags: [vue, vite]
 toc_max_heading_level: 2
 ---
@@ -57,7 +57,13 @@ import AutoImport from 'unplugin-auto-import/vite'
 export default defineConfig({
   plugins: [
     AutoImport({
-      imports: ['vue', 'vue-router', 'vue-i18n', '@vueuse/head', '@vueuse/core'],
+      imports: [
+        'vue',
+        'vue-router',
+        'vue-i18n',
+        '@vueuse/head',
+        '@vueuse/core',
+      ],
       dts: 'src/auto-import.d.ts',
       // 可以选择auto-import.d.ts生成的位置（默认根目录），建议设置为'src/auto-import.d.ts'
     }),
@@ -436,7 +442,11 @@ createApp(App).mount('#app')
 在 html 文件中指明 class 为 iconify，data-icon 为 iconify 对应的图标（直接复制官网的图标）
 
 ```html
-<span class="iconify" data-icon="system-uicons:browser-alt" data-inline="false" />
+<span
+  class="iconify"
+  data-icon="system-uicons:browser-alt"
+  data-inline="false"
+/>
 ```
 
 当然，也可以自行封装一个 Icon 组件，像下面这样使用。
@@ -476,7 +486,15 @@ export default defineConfig({
 并根据需要这样使用它们：
 
 ```html
-<button bg="blue-400 hover:blue-500 dark:blue-500 dark:hover:blue-600" text="sm white" font="mono light" p="y-2 x-4" border="2 rounded blue-200">Button</button>
+<button
+  bg="blue-400 hover:blue-500 dark:blue-500 dark:hover:blue-600"
+  text="sm white"
+  font="mono light"
+  p="y-2 x-4"
+  border="2 rounded blue-200"
+>
+  Button
+</button>
 ```
 
 语法

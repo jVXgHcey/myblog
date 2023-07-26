@@ -2,7 +2,7 @@
 slug: react-css-implementation
 title: React中Css几种实现方案
 date: 2022-01-14
-authors: kuizuo
+authors: simon
 tags: [react, css]
 keywords: [react, css]
 ---
@@ -27,7 +27,7 @@ js
 
 ```jsx
 function Hello() {
-  return <div className='box'>hello react</div>
+  return <div className="box">hello react</div>
 }
 
 ReactDOM.render(<Hello />, document.getElementById('root'))
@@ -54,7 +54,7 @@ const { class: className } = { class: 'foo' }
 ```jsx
 function Hello() {
   return (
-    <div className='box' style={{ fontSize: '32px', textAlign: 'center' }}>
+    <div className="box" style={{ fontSize: '32px', textAlign: 'center' }}>
       hello react
     </div>
   )
@@ -113,14 +113,13 @@ function Hello() {
 ```jsx
 import classnames from 'classnames'
 import styles from './styles.module.css'
-
 ;<div className={classnames(styles.class1, styles.class2)}></div>
 ```
 
 最终都将编译为
 
 ```jsx
-<div class='class1 class2'></div>
+<div class="class1 class2"></div>
 ```
 
 当然 classnames 还有多种方式添加，就不列举了，主要针对复杂样式，根据条件是否添加样式。
@@ -152,7 +151,7 @@ const Title = styled.h1`
 // 在充分使用css全部功能的同时，非常方便的实现动态css， 甚至可以直接调用props！
 const Wrapper = styled.section`
   padding: 4em;
-  background: ${(props) => props.bgColor};
+  background: ${props => props.bgColor};
 `
 
 const Button = styled.a`
@@ -167,7 +166,7 @@ const Button = styled.a`
   border: 2px solid white;
   /* The GitHub button is a primary button
    * edit this to target it specifically! */
-  ${(props) =>
+  ${props =>
     props.primary &&
     css`
       background: white;
@@ -176,11 +175,16 @@ const Button = styled.a`
 `
 
 const App = () => (
-  <Wrapper bgColor='papayawhi'>
+  <Wrapper bgColor="papayawhi">
     <Title>
       <span>Hello World</span>, this is my first styled component!
     </Title>
-    <Button href='https://github.com/styled-components/styled-components' target='_blank' rel='noopener' primary>
+    <Button
+      href="https://github.com/styled-components/styled-components"
+      target="_blank"
+      rel="noopener"
+      primary
+    >
       GitHub
     </Button>
   </Wrapper>
@@ -278,7 +282,7 @@ const button = css`
 引用的时候直接在 class 中添加 flex 即可
 
 ```jsx
-<h1 class='flex'>tailwindcss</h1>
+<h1 class="flex">tailwindcss</h1>
 ```
 
 贴一张官方演示图，把大部分常用的样式都封装成 class

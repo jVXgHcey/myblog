@@ -2,10 +2,10 @@
 id: docusaurus-search
 slug: /docusaurus-search
 title: 搜索
-authors: kuizuo
+authors: simon
 ---
 
-> [搜索 | Docusaurus](https://docusaurus.io/zh-CN/docs/search) 
+> [搜索 | Docusaurus](https://docusaurus.io/zh-CN/docs/search)
 
 ## [algolia](https://www.algolia.com/)
 
@@ -15,7 +15,7 @@ authors: kuizuo
 
 2. 自己运行 DocSearch 爬虫，可以随时爬取，但需要自行去注册账号和搭建爬虫环境，或者使用 Github Actions 来帮我们爬取。
 
-### 方案1
+### 方案 1
 
 关于申请 Algolia DocSearch 在文档中有详细介绍，主要是要申请麻烦，需要等待邮箱，并且还需要回复内容给对方进行确认。所以免费托管的 DocSearch 条件是，比较苛刻的，但申请完几乎是一劳永逸，也是我非常推荐的。如果申请成功后就可以在 [Crawler Admin Console](https://crawler.algolia.com/admin/crawlers) 中查看
 
@@ -35,11 +35,11 @@ algolia: {
 
 ![image-20230219144035031](https://img.kuizuo.cn/image-20230219144035031.png)
 
-### 方案2
+### 方案 2
 
 [Run your own | DocSearch (algolia.com)](https://docsearch.algolia.com/docs/run-your-own)
 
-因为方案1是真的难申请，极大概率会失败，无奈只能采用方案2。
+因为方案 1 是真的难申请，极大概率会失败，无奈只能采用方案 2。
 
 首先去申请 [Algolia](https://www.algolia.com/) 账号，然后在左侧 indices 创建索引，在 API Keys 中获取 Application ID 和 API Key（注意，有两个 API KEY）
 
@@ -69,8 +69,8 @@ jq-1.6
 接着在任意目录中创建 `.env` 文件，填入对应的 APPID 和 API KEY（这里是`Admin API Key`，当时我还一直以为是 Search API Key 坑了我半天 😭）
 
 ```js
-APPLICATION_ID = YOUR_APP_ID;
-API_KEY = YOUR_API_KEY;
+APPLICATION_ID = YOUR_APP_ID
+API_KEY = YOUR_API_KEY
 ```
 
 然后创建 `docsearch.json` 文件到项目目录下，其内容可以参考如下（将高亮部分替换成你的网站）
@@ -173,11 +173,10 @@ docker run -it --env-file=.env -e "CONFIG=$(cat docsearch.json | jq -r tostring)
 
 因为要确保项目成功部署后才触发，如果采用 vercel 部署可以按照如下触发条件。
 
-```yaml title='.github/workflows/docsearch.yml' 
+```yaml title='.github/workflows/docsearch.yml'
 name: docsearch
 
-on:
-  deployment
+on: deployment
 
 jobs:
   algolia:

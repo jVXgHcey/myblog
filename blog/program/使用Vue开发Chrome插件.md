@@ -2,7 +2,7 @@
 slug: vue-chrome-extension
 title: 使用Vue开发Chrome插件
 date: 2021-09-18
-authors: kuizuo
+authors: simon
 tags: [chrome, plugin, vue, develop]
 keywords: [chrome, plugin, vue, develop]
 description: 使用 Vue2 开发一个 Chrome 插件
@@ -415,8 +415,12 @@ window.onload = function () {
   console.log('加载完毕')
 
   function getInfo() {
-    let username = $('#v_upinfo > div.up-info_right > div.name > a.username').text()
-    let follow = $(`#v_upinfo > div.up-info_right > div.btn-panel > div.default-btn.follow-btn.btn-transition.b-gz.following > span > span > span`).text()
+    let username = $(
+      '#v_upinfo > div.up-info_right > div.name > a.username',
+    ).text()
+    let follow = $(
+      `#v_upinfo > div.up-info_right > div.btn-panel > div.default-btn.follow-btn.btn-transition.b-gz.following > span > span > span`,
+    ).text()
     let title = $(`#viewbox_report > h1 > span`).text()
     let view = $('#viewbox_report > div > span.view').attr('title')
 
@@ -443,8 +447,12 @@ window.onload = function () {
   console.log('加载完毕')
 
   function getInfo() {
-    let username = $('#v_upinfo > div.up-info_right > div.name > a.username').text().trim()
-    let follow = $(`#v_upinfo > div.up-info_right > div.btn-panel > div.default-btn.follow-btn.btn-transition.b-gz.following > span > span > span`).text()
+    let username = $('#v_upinfo > div.up-info_right > div.name > a.username')
+      .text()
+      .trim()
+    let follow = $(
+      `#v_upinfo > div.up-info_right > div.btn-panel > div.default-btn.follow-btn.btn-transition.b-gz.following > span > span > span`,
+    ).text()
     let title = $(`#viewbox_report > h1 > span`).text()
     let view = $('#viewbox_report > div > span.view').attr('title')
 
@@ -478,9 +486,13 @@ window.onload = function () {
 
 ```js
 // 评论文本框
-$('#comment > div > div.comment > div > div.comment-send > div.textarea-container > textarea').val('要回复的内容')
+$(
+  '#comment > div > div.comment > div > div.comment-send > div.textarea-container > textarea',
+).val('要回复的内容')
 // 评论按钮
-$('#comment > div > div.comment > div > div.comment-send > div.textarea-container > button').click()
+$(
+  '#comment > div > div.comment > div > div.comment-send > div.textarea-container > button',
+).click()
 ```
 
 接着就是写页面通信的了，可以看到是 popup 向 content 发送请求
@@ -490,11 +502,19 @@ window.onload = function () {
   console.log('content加载完毕')
 
   function comment() {
-    chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+    chrome.runtime.onMessage.addListener(function (
+      request,
+      sender,
+      sendResponse,
+    ) {
       let { cmd, message } = request
       if (cmd === 'addComment') {
-        $('#comment > div > div.comment > div > div.comment-send > div.textarea-container > textarea').val(message)
-        $('#comment > div > div.comment > div > div.comment-send > div.textarea-container > button').click()
+        $(
+          '#comment > div > div.comment > div > div.comment-send > div.textarea-container > textarea',
+        ).val(message)
+        $(
+          '#comment > div > div.comment > div > div.comment-send > div.textarea-container > button',
+        ).click()
       }
 
       sendResponse('我收到了你的消息！')
@@ -512,7 +532,14 @@ window.onload = function () {
       <el-header height="24">B站小工具</el-header>
       <el-main>
         <el-row :gutter="5">
-          <el-input type="textarea" :rows="2" placeholder="请输入内容" v-model="message" class="mb-5"> </el-input>
+          <el-input
+            type="textarea"
+            :rows="2"
+            placeholder="请输入内容"
+            v-model="message"
+            class="mb-5"
+          >
+          </el-input>
 
           <div>
             <el-button @click="addComment">评论</el-button>
@@ -534,12 +561,16 @@ window.onload = function () {
       }
     },
     created() {
-      chrome.storage.sync.get('list', (obj) => {
+      chrome.storage.sync.get('list', obj => {
         this.list = obj['list']
       })
     },
     mounted() {
-      chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
+      chrome.runtime.onMessage.addListener(function (
+        request,
+        sender,
+        sendResponse,
+      ) {
         console.log('收到来自content-script的消息：')
         console.log(request, sender, sendResponse)
         sendResponse('我是后台，我已收到你的消息：' + JSON.stringify(request))
@@ -547,16 +578,22 @@ window.onload = function () {
     },
     methods: {
       sendMessageToContentScript(message, callback) {
-        chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
-          chrome.tabs.sendMessage(tabs[0].id, message, function (response) {
-            if (callback) callback(response)
-          })
-        })
+        chrome.tabs.query(
+          { active: true, currentWindow: true },
+          function (tabs) {
+            chrome.tabs.sendMessage(tabs[0].id, message, function (response) {
+              if (callback) callback(response)
+            })
+          },
+        )
       },
       addComment() {
-        this.sendMessageToContentScript({ cmd: 'addComment', message: this.message }, function () {
-          console.log('来自content的回复：' + response)
-        })
+        this.sendMessageToContentScript(
+          { cmd: 'addComment', message: this.message },
+          function () {
+            console.log('来自content的回复：' + response)
+          },
+        )
       },
     },
   }
@@ -567,7 +604,7 @@ window.onload = function () {
 
 实现类似点赞功能也是同理的。
 
-## 相关模板 
+## 相关模板
 
 [vitesse-webext](https://github.com/antfu/vitesse-webext)
 

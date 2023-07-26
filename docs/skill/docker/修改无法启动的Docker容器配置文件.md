@@ -3,7 +3,7 @@ id: fix-docker-config-that-cannot-start-up
 slug: /fix-docker-config-that-cannot-start-up
 title: 修改无法启动的Docker容器配置文件
 date: 2021-08-17
-authors: kuizuo
+authors: simon
 tags: [docker, elasticsearch]
 keywords: [docker, elasticsearch]
 ---
@@ -22,8 +22,7 @@ keywords: [docker, elasticsearch]
 
 添加了下列两个参数
 
--Xms16g
--Xmx16g
+-Xms16g -Xmx16g
 
 然后重启容器，就发现容器怎么也启动不了，然后咋一看，配置文件搞错了，设置内存的应该是`jvm.options`这个配置文件
 

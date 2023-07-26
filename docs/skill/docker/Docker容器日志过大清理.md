@@ -3,7 +3,7 @@ id: docker-container-log-clean
 slug: /docker-container-log-clean
 title: Docker容器日志过大清理
 date: 2021-10-16
-authors: kuizuo
+authors: simon
 tags: [docker]
 keywords: [docker]
 ---
@@ -122,8 +122,7 @@ nginx:
 
 ```
 
-max-size=500m，意味着一个容器日志大小上限是 500M，
-max-file=3，意味着一个容器有三个日志，分别是 id+.json、id+1.json、id+2.json。
+max-size=500m，意味着一个容器日志大小上限是 500M， max-file=3，意味着一个容器有三个日志，分别是 id+.json、id+1.json、id+2.json。
 
 ```sh
 # 重启docker守护进程

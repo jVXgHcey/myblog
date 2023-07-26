@@ -2,7 +2,7 @@
 slug: js-binary-data
 title: JavaScript中的二进制数据
 date: 2022-01-24
-authors: kuizuo
+authors: simon
 tags: [javascript]
 keywords: [javascript]
 ---
@@ -109,7 +109,18 @@ buf 还有一些方法，无非就是操作字节复制，偏移就不做过多�
 上面的代码 `Buffer.from(buf.buffer).toString()`，也就是将`ArrayBuffer` 数据转为 utf8 编码文本。其中 toString 还能转为以下编码（toString 默认 utf8）
 
 ```typescript
-type BufferEncoding = 'ascii' | 'utf8' | 'utf-8' | 'utf16le' | 'ucs2' | 'ucs-2' | 'base64' | 'base64url' | 'latin1' | 'binary' | 'hex'
+type BufferEncoding =
+  | 'ascii'
+  | 'utf8'
+  | 'utf-8'
+  | 'utf16le'
+  | 'ucs2'
+  | 'ucs-2'
+  | 'base64'
+  | 'base64url'
+  | 'latin1'
+  | 'binary'
+  | 'hex'
 ```
 
 不过 Nodejs 不支持 gbk 编码，所以需要使用第三方包，如 iconv-lite
@@ -130,10 +141,10 @@ Buffer.from(str, 'hex').toString() // 将hex编码转str
 
 ```javascript
 const Base64 = {
-  encode: (str) => {
+  encode: str => {
     return Buffer.from(str).toString('base64')
   },
-  decode: (str) => {
+  decode: str => {
     return Buffer.from(str, 'base64').toString()
   },
 }
@@ -179,7 +190,7 @@ axios
   .get('图片url地址', {
     responseType: 'arraybuffer',
   })
-  .then((res) => {
+  .then(res => {
     let base64Img = res.data.toString('base64')
     console.log(base64Img)
   })
@@ -190,7 +201,7 @@ axios
 ### http 发送二进制数据与 WebSocket
 
 ```javascript
-axios.post('http://example.com', Buffer.from('abc')).then((res) => {
+axios.post('http://example.com', Buffer.from('abc')).then(res => {
   console.log(res.data)
 })
 ```

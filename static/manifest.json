@@ -8,8 +8,7 @@
   "start_url": "./index.html",
   "related_applications": [
     {
-      "platform": "webapp",
-      "url": "https://kuizuo.cn/manifest.json"
+      "platform": "webapp"
     }
   ],
   "icons": [
