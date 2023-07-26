@@ -14,21 +14,21 @@ keywords: [http]
 先看一条 HTTP 请求
 
 ```http
-POST https://xxx.kuizuo.cn/v2/login HTTP/1.1
-Host: xxx.kuizuo.cn
+POST https://xxx.simon.cn/v2/login HTTP/1.1
+Host: xxx.simon.cn
 Connection: keep-alive
 Content-Length: 121
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36
 // Content-Type: application/json;charset=UTF-8
 Accept: application/json, text/plain, */*
 
-{"username":"kuizuo","password":"a12345678"}
+{"username":"simon","password":"a12345678"}
 ```
 
 上面那个请求发送到我的服务器，服务器却接收到的是这样一串值
 
 ```json
-{ "{\"username\":\"kuizuo\",\"password\":\"a12345678\"}": "" }
+{ "{\"username\":\"simon\",\"password\":\"a12345678\"}": "" }
 ```
 
 很显然，它把 json 格式解析成了 x-www-form-urlencoded。

@@ -23,9 +23,9 @@
     "message": "Tags",
     "description": "Navbar item with label 标签"
   },
-  "item.label.归档": {
+  "item.label.所有文章": {
     "message": "Archive",
-    "description": "Navbar item with label 归档"
+    "description": "Navbar item with label 所有文章"
   },
   "item.label.笔记": {
     "message": "Notes",

@@ -53,7 +53,7 @@ const config = {
             //   to: 'tags',
             // },
             {
-              label: '归档',
+              label: '所有文章',
               to: 'archive',
             },
             {
@@ -107,7 +107,7 @@ const config = {
               to: 'tags',
             },
             {
-              label: '归档',
+              label: '所有文章',
               to: 'archive',
             },
             {

@@ -295,7 +295,7 @@ docker build -t 自定镜像名 .
 
 ```dockerfile
 FROM cetnos
-MAINTAINER kuizuo<911993023@qq.com>
+MAINTAINER simon
 
 ENV MYPATH /usr/local
 WORKDIR $MYPATH
@@ -331,15 +331,15 @@ docker commit -m="描述信息" -a="作者" 容器id 自定镜像名:[TAG]
 
 1、登录[Docker Hub](https://hub.docker.com/) 注册一个账号
 
-2、docker login -u kuizuo
+2、docker login -u simon
 
 3、输入密码
 
 ```
-[root@localhost ~]# docker login -u kuizuo
+[root@localhost ~]# docker login -u simon
 Password:
 Error response from daemon: Get https://registry-1.docker.io/v2/: unauthorized: incorrect username or password
-[root@localhost ~]# docker login -u kuizuo
+[root@localhost ~]# docker login -u simon
 Password:
 WARNING! Your password will be stored unencrypted in /root/.docker/config.json.
 Configure a credential helper to remove this warning. See

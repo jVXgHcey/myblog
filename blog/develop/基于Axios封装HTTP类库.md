@@ -163,7 +163,7 @@ http.instance.interceptors.request.use(
   "scripts": {
     "build": "tsc"
   },
-  "author": "kuizuo",
+  "author": "simon",
   "license": "ISC",
   "dependencies": {
     "axios": "^0.21.1",

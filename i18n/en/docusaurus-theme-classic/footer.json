@@ -15,9 +15,9 @@
     "message": "Tags",
     "description": "The label of footer link with label=标签 linking to tags"
   },
-  "link.item.label.归档": {
+  "link.item.label.所有文章": {
     "message": "Archive",
-    "description": "The label of footer link with label=归档 linking to archive"
+    "description": "The label of footer link with label=所有文章 linking to archive"
   },
   "link.item.label.技术笔记": {
     "message": "Notes",

@@ -7,9 +7,9 @@
     "message": "标签",
     "description": "Navbar item with label 标签"
   },
-  "item.label.归档": {
-    "message": "归档",
-    "description": "Navbar item with label 归档"
+  "item.label.所有文章": {
+    "message": "所有文章",
+    "description": "Navbar item with label 所有文章"
   },
   "item.label.学习": {
     "message": "学习",
