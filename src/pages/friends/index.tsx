@@ -7,6 +7,10 @@ import { Friends, type Friend } from '@site/data/friend'
 
 import styles from './styles.module.css'
 
+const TITLE = '西蒙的小站'
+const DESCRIPTION = ''
+const ADD_FRIEND_URL = ''
+
 function FriendHeader() {
   return (
     <section className="margin-top--lg margin-bottom--lg text--center">
@@ -15,10 +19,11 @@ function FriendHeader() {
       <div className={styles.siteInfo}>
         <CodeBlock language="jsx">
           {`{
-  // 本站信息
-  title: '西蒙的小站',
-  description: '道阻且长，行则将至',
-}`}
+            // 本站信息
+            title: '西蒙的小站',
+            description: '道阻且长，行则将至',
+            avatar: ''
+          }`}
         </CodeBlock>
       </div>
       <a
