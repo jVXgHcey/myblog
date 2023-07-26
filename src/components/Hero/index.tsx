@@ -7,9 +7,8 @@ import { ThemeConfig } from '@docusaurus/preset-classic'
 
 import Link from '@docusaurus/Link'
 
-import HeroMain from './img/hero_main.svg'
+//import HeroMain from './img/hero_main.svg'
 
-import JuejinIcon from '@site/static/svg/juejin.svg'
 import { Icon } from '@iconify/react'
 
 import styles from './styles.module.scss'
@@ -76,7 +75,7 @@ function Hero() {
         </animated.div>
       </div>
       <div className={styles.bloghome__image}>
-        <HeroMain />
+        <img src="/img/retro.png" />
       </div>
     </animated.div>
   )

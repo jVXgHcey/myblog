@@ -866,7 +866,7 @@ body
 
 ```javascript
 let obj = {
-  name: 'kuizuo',
+  name: 'simon',
 }
 ```
 
@@ -934,7 +934,7 @@ Node {
 ```javascript
 function test() {
   let obj = {
-    name: 'kuizuo',
+    name: 'simon',
   }
   return obj
 }
@@ -972,7 +972,7 @@ traverse(ast, {
 
 // function test() {
 //   let obj = {
-//     name: 'kuizuo'
+//     name: 'simon'
 //   };
 //   return obj;
 // }
@@ -1106,7 +1106,7 @@ function _0xabcdef2() {
 演示代码
 
 ```javascript
-let a = 'kuizuo'
+let a = 'simon'
 ;`${a}nb${12}3${'456'}`
 ```
 
@@ -1167,7 +1167,7 @@ class Test {
   }
 }
 
-let test = new Test('kuizuo')
+let test = new Test('simon')
 console.log(test.run())
 ```
 
