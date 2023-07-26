@@ -7,7 +7,7 @@ tags: [javascript, ast, reverse, project]
 keywords: [javascript, ast, reverse, project]
 ---
 
-基于 Babel 对 JS 代码进行混淆与还原操作的网站 [JS 代码混淆与还原 (kuizuo.cn)](http://deobfuscator.kuizuo.cn/)
+基于 Babel 对 JS 代码进行混淆与还原操作的网站
 
 ![js-de-obfuscator](https://img.kuizuo.cn/20220131193110.png)
 

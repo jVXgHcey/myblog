@@ -17,7 +17,7 @@ keywords: [blog, docusaurus, gitalk]
 
 ### 1、创建评论仓库
 
-首先需要 github 账号，创建一个仓库用于存放评论，由于我的博客是同步上传到[github](https://github.com/kuizuo/blog)上，所以就无需新建仓库
+首先需要 github 账号，创建一个仓库用于存放评论。
 
 ### 2、开启 issues 功能
 
@@ -122,8 +122,8 @@ const options = {
   clientID: 'GitHub Application Client ID',
   clientSecret: 'GitHub Application Client Secret',
   repo: 'blog',
-  owner: 'kuizuo',
-  admin: ['kuizuo'],
+  owner: 'simon',
+  admin: ['simon'],
   id: title,
   title: title,
   labels: labels,
@@ -185,7 +185,7 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
     "number": 24,
     "title": "Docusaurus配置Gitalk评论插件",
     "user": {
-      "login": "kuizuo",
+      "login": "simon",
       "id": 61005888,
       "node_id": "MDQ6VXNlcjYxMDA1ODg4",
       "avatar_url": "https://avatars.githubusercontent.com/u/61005888?v=4",
@@ -217,7 +217,7 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
       {
         "id": 3754411279,
         "node_id": "LA_kwDOF7NJDM7fx8UP",
-        "url": "https://api.github.com/repos/kuizuo/blog/labels/blog",
+        "url": "",
         "name": "blog",
         "color": "ededed",
         "default": false,
@@ -226,7 +226,7 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
       {
         "id": 3754517867,
         "node_id": "LA_kwDOF7NJDM7fyWVr",
-        "url": "https://api.github.com/repos/kuizuo/blog/labels/Docusaurus%E9%85%8D%E7%BD%AEGitalk%E8%AF%84%E8%AE%BA%E6%8F%92%E4%BB%B6",
+        "url": "",
         "name": "Docusaurus配置Gitalk评论插件",
         "color": "ededed",
         "default": false,
@@ -244,9 +244,9 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
     "closed_at": null,
     "author_association": "OWNER",
     "active_lock_reason": null,
-    "body": "https://kuizuo.cn/develop/Docusaurus配置Gitalk评论插件\n前言",
+    "body": "配置Gitalk评论插件\n前言",
     "reactions": {
-      "url": "https://api.github.com/repos/kuizuo/blog/issues/24/reactions",
+      "url": "",
       "total_count": 0,
       "+1": 0,
       "-1": 0,
@@ -257,7 +257,7 @@ options 有个选项 repo，填写的是仓库名称，不是链接，像上面�
       "rocket": 0,
       "eyes": 0
     },
-    "timeline_url": "https://api.github.com/repos/kuizuo/blog/issues/24/timeline",
+    "timeline_url": "",
     "performed_via_github_app": null
   }
 ]

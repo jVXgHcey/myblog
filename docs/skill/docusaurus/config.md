@@ -15,10 +15,10 @@ authors: simon
 const config = {
   title: '西蒙的小站',
   titleDelimiter: '-',
-  url: 'https://kuizuo.cn',
+  url: '',
   baseUrl: '/',
   favicon: 'img/favicon.ico',
-  organizationName: 'kuizuo',
+  organizationName: 'simon',
   projectName: 'blog',
   tagline: '记录所学知识，领略编程之美',
   /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
@@ -67,12 +67,7 @@ module.exports = config
 
 ```javascript title='docusaurus.config.js'
 socials: {
-    github: 'https://github.com/kuizuo',
-    twitter: 'https://twitter.com/kuizuo',
-    juejin: 'https://juejin.cn/user/1565318510545901',
-    csdn: 'https://blog.csdn.net/kuizuo12',
-    qq: 'https://wpa.qq.com/msgrd?v=3&amp;uin=911993023&amp;site=qq',
-    cloudmusic: 'https://music.163.com/#/user/home?id=1333010742',
+    github: 'https://github.com/',
 },
 ```
 

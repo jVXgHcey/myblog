@@ -134,7 +134,7 @@ vercel --prod
 ```
 Vercel CLI 24.2.1
 ? Set up and deploy “F:\Project\React\online-tools”? [Y/n] y
-? Which scope do you want to deploy to? kuizuo
+? Which scope do you want to deploy to? simon
 ? Link to existing project? [y/N] n
 ? What’s your project’s name? online-tools
 ? In which directory is your code located? ./

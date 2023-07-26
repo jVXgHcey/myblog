@@ -27,7 +27,7 @@ authors: simon
 algolia: {
   appId: 'GV6YN1ODMO',
   apiKey: '50303937b0e4630bec4a20a14e3b7872',
-  indexName: 'kuizuo',
+  indexName: 'simon',
 }
 ```
 
@@ -54,7 +54,7 @@ themeConfig: {
     algolia: {
       apiKey: "xxxxxxxxxxx",
       appId: "xxxxxxxxxxx",
-      indexName: "kuizuo",
+      indexName: "simon",
     },
 }
 ```
@@ -62,7 +62,7 @@ themeConfig: {
 系统我选用的是 Linux，在 Docker 的环境下运行爬虫代码。不过要先 [安装 jq](https://github.com/stedolan/jq/wiki/Installation#zero-install) 我这里选择的是 0install 进行安装（安装可能稍慢），具体可以查看文档，然后在控制台查看安装结果
 
 ```
-[root@kzserver kuizuo.cn]# jq --version
+[root@kzserver]# jq --version
 jq-1.6
 ```
 

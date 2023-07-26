@@ -84,8 +84,7 @@ auth  = true
 oplogSize=2048
 ```
 
-- 开启防火墙
-  systemctl start firewall
+- 开启防火墙 systemctl start firewall
 
 - 防火墙放端口
 
@@ -198,15 +197,15 @@ db.order.aggregate([
 ### 连接
 
 ```js
-const mongoose = require('mongoose');
-let url = 'mongodb://localhost:27017/kuizuo';
-mongoose.connect(url, { useNewUrlParser: true }, function (err) {});
+const mongoose = require('mongoose')
+let url = 'mongodb://localhost:27017/simon'
+mongoose.connect(url, { useNewUrlParser: true }, function (err) {})
 ```
 
 ### 定义 Schema
 
 ```js
-import * as mongoose from 'mongoose';
+import * as mongoose from 'mongoose'
 
 let UserSchema = mongoose.Schema({
   username: {
@@ -218,7 +217,7 @@ let UserSchema = mongoose.Schema({
   age: {
     type: Number,
     get(params) {
-      return params + '岁';
+      return params + '岁'
     }, // get不建议使用  因为不是获取的时候添加 而是实例化的时候取的时候添加
   },
   status: Number,
@@ -226,32 +225,32 @@ let UserSchema = mongoose.Schema({
     type: String,
     set(params) {
       if (!params.includes('https://') || !params.includes('http://')) {
-        return 'http://' + params;
+        return 'http://' + params
       }
-      return params;
+      return params
     },
   },
-});
+})
 ```
 
 ### 定义模型
 
 ```js
 // let User = mongoose.model('User', UserSchema) // 首字母大写  默认users表
-let User = mongoose.model('User', UserSchema, 'user'); // 指定user表
+let User = mongoose.model('User', UserSchema, 'user') // 指定user表
 
 User.find({}, (err, doc) => {
-  console.log(doc);
-});
+  console.log(doc)
+})
 
 // 增加数据
 // 实例化对象
 let user = new User({
-  username: 'kuizuo',
+  username: 'simon',
   password: 'a12345678',
-});
+})
 
-user.save();
+user.save()
 ```
 
 ### 自定义封装方法(一般很少使用)
@@ -349,7 +348,7 @@ var userSchema = new mongoose.Schema(
     },
   },
   { versionKey: false },
-);
+)
 ```
 
 如果在数据库中扔向保留这个字段，只是在查询的时候不想返回**v 字段，可以通过设置{ **v: 0}在返回结果中过滤掉这一字段
@@ -399,7 +398,7 @@ UserModel.findOne({username, password}, {__v: 0}, function (err, user){
 #### $elemMatch
 
 ```js
-Model.find({ username: '15212345678', name: { $elemMatch: { name: '前端' } } });
+Model.find({ username: '15212345678', name: { $elemMatch: { name: '前端' } } })
 ```
 
 要注意的是：**对于数组中只有一个返回元素，我们可以使用$elemMatch来查询，但是对于多个元素$elemMatch 是不适应。**
@@ -500,11 +499,11 @@ mongodump -h dbhost -d dbname -o dbdirectory
 
 mongodump 命令可选参数列表如下所示：
 
-| 语法                                              | 描述                           | 实例                                             |
-| :------------------------------------------------ | :----------------------------- | :----------------------------------------------- |
-| mongodump --host HOST_NAME --port PORT_NUMBER     | 该命令将备份所有 MongoDB 数据  | mongodump --host runoob.com --port 27017         |
-| mongodump --dbpath DB_PATH --out BACKUP_DIRECTORY | 指定备份数据库位置             | mongodump --dbpath /data/db/ --out /data/backup/ |
-| mongodump --collection COLLECTION --db DB_NAME    | 该命令将备份指定数据库的集合。 | mongodump --collection mycol --db test           |
+| 语法 | 描述 | 实例 |
+| :-- | :-- | :-- |
+| mongodump --host HOST_NAME --port PORT_NUMBER | 该命令将备份所有 MongoDB 数据 | mongodump --host runoob.com --port 27017 |
+| mongodump --dbpath DB_PATH --out BACKUP_DIRECTORY | 指定备份数据库位置 | mongodump --dbpath /data/db/ --out /data/backup/ |
+| mongodump --collection COLLECTION --db DB_NAME | 该命令将备份指定数据库的集合。 | mongodump --collection mycol --db test |
 
 例: 备份 test 数据库
 
